@@ -10,17 +10,18 @@ namespace YouTubeDownload
 
     public class Receiver
     {
-        private YoutubeClient youtubeClient = new YoutubeClient();
-        string videoUrl = YouTubeDownload.YouTubeList[0].ToString();
-        string outputFilePath = "";
+        private YoutubeClient youtube = new YoutubeClient();  
+        public List<VideoInfo> videoInfo = new List<VideoInfo>();
+
         public string GetDescription()
         {
-            return youtubeClient.Videos.GetAsync(videoUrl).ToString();    
+               
         }
 
         public void Download()
         {
-            youtubeClient.Videos.DownloadAsync (videoUrl, outputFilePath)
+            
+           
         }
     }
 }
