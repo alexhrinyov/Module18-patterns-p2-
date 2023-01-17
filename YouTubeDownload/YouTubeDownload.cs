@@ -2,7 +2,7 @@ namespace YouTubeDownload
 {
     public partial class YouTubeDownload : Form
     {
-        public static List<string> YouTubeList;
+        public static List<string>? YouTubeList;
         public YouTubeDownload()
         {
             InitializeComponent();
