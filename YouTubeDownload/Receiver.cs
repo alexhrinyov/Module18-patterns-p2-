@@ -14,7 +14,12 @@ namespace YouTubeDownload
     {
         private YoutubeClient youtube = new YoutubeClient();  
         
-
+        /// <summary>
+        /// Получить описания видео
+        /// </summary>
+        /// <param name="item"></param>
+        /// <param name="videoUrl"></param>
+        /// <returns></returns>
         public async Task  GetDescription(VideoInfo item ,string videoUrl)
         {
             var video = await youtube.Videos.GetAsync(item.VideoUrl);
@@ -25,6 +30,12 @@ namespace YouTubeDownload
             
         }
 
+        /// <summary>
+        /// Загрузить видео
+        /// </summary>
+        /// <param name="video"></param>
+        /// <param name="outputPath"></param>
+        /// <returns></returns>
         public async Task DownloadVideo(VideoInfo video, string outputPath)
         {
             await youtube.Videos.DownloadAsync(video.VideoUrl, outputPath);

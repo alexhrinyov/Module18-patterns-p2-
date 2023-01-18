@@ -1,20 +1,26 @@
 using YouTubeDownload.Commands;
+using YoutubeExplode.Videos.Streams;
+using YoutubeExplode.Videos;
+using YoutubeExplode;
+using YoutubeExplode.Converter;
 
 namespace YouTubeDownload
 {
     public partial class YouTubeDownload : Form
     {
-        public static List<string>? YouTubeList;
-        Sender senderOne;
+        
+        Sender CommadSender;
         Receiver receiver;
         IYouTubeCommand descriptionCommand;
         IYouTubeCommand downloadCommand;
         public YouTubeDownload()
         {
             InitializeComponent();
-            senderOne = new Sender();
+            CommadSender = new Sender();
             receiver = new Receiver();
             descriptionCommand = new DescriptionCommand(receiver);
+            downloadCommand = new DownloadCommand(receiver);
+
 
         }
 
@@ -32,9 +38,9 @@ namespace YouTubeDownload
             try
             {
                 VideoInfo video = new VideoInfo(VideoUrlBox.Text);
-                senderOne.SetCommand(descriptionCommand);
-                await descriptionCommand.Run(video, VideoUrlBox.Text);
-                DescriptionLabel.Text = $"Title: {video.Title}, Author: {video.Author}, Duration: {video.Duration}";
+                CommadSender.SetCommand(descriptionCommand);
+                await CommadSender.RunDescription(video, VideoUrlBox.Text);
+                DescriptionLabel.Text = $"Title: {video.Title}\nAuthor: {video.Author}\nDuration: {video.Duration}";
             }
             catch(Exception ex)
             {
@@ -45,8 +51,24 @@ namespace YouTubeDownload
 
         }
 
-        private void DownloadButton_Click(object sender, EventArgs e)
+        private async void DownloadButton_Click(object sender, EventArgs e)
         {
+            try
+            {
+                VideoInfo video = new VideoInfo(VideoUrlBox.Text);
+                CommadSender.SetCommand(downloadCommand);
+                //await CommadSender.RunDownload(video, PathLabel.Text);
+                YoutubeClient client = new YoutubeClient();
+
+                await client.Videos.DownloadAsync(video.VideoUrl, PathLabel.Text);
+               
+
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
 
         }
     }

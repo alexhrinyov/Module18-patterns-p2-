@@ -16,9 +16,14 @@ namespace YouTubeDownload
             Command = command;
         }
 
-        public void Run(VideoInfo item, string URL)
+        public async Task RunDescription(VideoInfo item, string URL)
         {
-            Command.Run(item, URL);
+            await Command.Run(item, URL);
+        }
+        public async Task RunDownload(VideoInfo item, string outputPath)
+        {
+            await Command.RunDownload(item, outputPath);
+            
         }
     }
 }

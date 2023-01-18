@@ -24,5 +24,10 @@ namespace YouTubeDownload.Commands
         {
             await Receiver.GetDescription(item, URL);
         }
+
+        public Task RunDownload(VideoInfo item, string outputPath)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
