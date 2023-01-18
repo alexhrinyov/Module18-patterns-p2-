@@ -6,7 +6,23 @@ using System.Threading.Tasks;
 
 namespace YouTubeDownload.Commands
 {
-    internal class DownloadCommand
+    internal class DownloadCommand : IYouTubeCommand
     {
+        Receiver Receiver;
+
+        public DownloadCommand(Receiver receiver)
+        {
+            Receiver = receiver;
+        }
+
+        public void Cancel()
+        {
+            
+        }
+
+        public async Task Run(VideoInfo item, string URL)
+        {
+            await Receiver.DownloadVideo(item, URL);
+        }
     }
 }

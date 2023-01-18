@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace YouTubeDownload.Commands
 {
-    internal interface ICommand
+    public interface IYouTubeCommand
     {
-        public void Run();
+        public Task Run(VideoInfo item, string URL);
         public void Cancel();
     }
 }

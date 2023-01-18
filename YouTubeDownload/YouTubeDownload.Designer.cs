@@ -29,34 +29,15 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.VideoGrid = new System.Windows.Forms.DataGridView();
-            this.Links = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SetPathButton = new System.Windows.Forms.Button();
             this.DownloadButton = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.DescriptionLabel = new System.Windows.Forms.Label();
             this.PathLabel = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.VideoGrid)).BeginInit();
+            this.VideoUrlBox = new System.Windows.Forms.TextBox();
+            this.GetDescrButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
-            // 
-            // VideoGrid
-            // 
-            this.VideoGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.VideoGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Links});
-            this.VideoGrid.Location = new System.Drawing.Point(24, 28);
-            this.VideoGrid.Name = "VideoGrid";
-            this.VideoGrid.RowTemplate.Height = 25;
-            this.VideoGrid.Size = new System.Drawing.Size(752, 150);
-            this.VideoGrid.TabIndex = 0;
-            this.VideoGrid.RowsAdded += new System.Windows.Forms.DataGridViewRowsAddedEventHandler(this.VideoGrid_RowsAdded);
-            // 
-            // Links
-            // 
-            this.Links.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Links.HeaderText = "Links";
-            this.Links.Name = "Links";
             // 
             // SetPathButton
             // 
@@ -76,11 +57,12 @@
             this.DownloadButton.TabIndex = 2;
             this.DownloadButton.Text = "Download";
             this.DownloadButton.UseVisualStyleBackColor = true;
+            this.DownloadButton.Click += new System.EventHandler(this.DownloadButton_Click);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(24, 208);
+            this.label1.Location = new System.Drawing.Point(24, 196);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(67, 15);
             this.label1.TabIndex = 3;
@@ -89,7 +71,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(189, 270);
+            this.label2.Location = new System.Drawing.Point(206, 283);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(88, 15);
             this.label2.TabIndex = 4;
@@ -98,7 +80,7 @@
             // DescriptionLabel
             // 
             this.DescriptionLabel.AutoSize = true;
-            this.DescriptionLabel.Location = new System.Drawing.Point(24, 235);
+            this.DescriptionLabel.Location = new System.Drawing.Point(24, 223);
             this.DescriptionLabel.Name = "DescriptionLabel";
             this.DescriptionLabel.Size = new System.Drawing.Size(86, 15);
             this.DescriptionLabel.TabIndex = 5;
@@ -107,11 +89,28 @@
             // PathLabel
             // 
             this.PathLabel.AutoSize = true;
-            this.PathLabel.Location = new System.Drawing.Point(189, 297);
+            this.PathLabel.Location = new System.Drawing.Point(206, 310);
             this.PathLabel.Name = "PathLabel";
             this.PathLabel.Size = new System.Drawing.Size(50, 15);
             this.PathLabel.TabIndex = 6;
             this.PathLabel.Text = "No Path";
+            // 
+            // VideoUrlBox
+            // 
+            this.VideoUrlBox.Location = new System.Drawing.Point(24, 28);
+            this.VideoUrlBox.Name = "VideoUrlBox";
+            this.VideoUrlBox.Size = new System.Drawing.Size(739, 23);
+            this.VideoUrlBox.TabIndex = 7;
+            // 
+            // GetDescrButton
+            // 
+            this.GetDescrButton.Location = new System.Drawing.Point(24, 79);
+            this.GetDescrButton.Name = "GetDescrButton";
+            this.GetDescrButton.Size = new System.Drawing.Size(146, 35);
+            this.GetDescrButton.TabIndex = 8;
+            this.GetDescrButton.Text = "Get Description";
+            this.GetDescrButton.UseVisualStyleBackColor = true;
+            this.GetDescrButton.Click += new System.EventHandler(this.GetDescrButton_Click);
             // 
             // YouTubeDownload
             // 
@@ -119,30 +118,29 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.GetDescrButton);
+            this.Controls.Add(this.VideoUrlBox);
             this.Controls.Add(this.PathLabel);
             this.Controls.Add(this.DescriptionLabel);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.DownloadButton);
             this.Controls.Add(this.SetPathButton);
-            this.Controls.Add(this.VideoGrid);
             this.Name = "YouTubeDownload";
             this.Text = "YouTubeDownload";
-            ((System.ComponentModel.ISupportInitialize)(this.VideoGrid)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private DataGridView VideoGrid;
-        private DataGridViewTextBoxColumn Links;
         private Button SetPathButton;
         private Button DownloadButton;
         private Label label1;
         private Label label2;
         private Label DescriptionLabel;
         private Label PathLabel;
+        private TextBox VideoUrlBox;
+        private Button GetDescrButton;
     }
 }

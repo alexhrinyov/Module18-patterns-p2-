@@ -6,18 +6,23 @@ using System.Threading.Tasks;
 
 namespace YouTubeDownload.Commands
 {
-    internal class DescriptionCommand:ICommand
+    internal class DescriptionCommand:IYouTubeCommand
     {
-        Receiver receiver;
+        Receiver Receiver;
+
+        public DescriptionCommand(Receiver receiver)
+        {
+            Receiver = receiver;
+        }
 
         public void Cancel()
         {
-            throw new NotImplementedException();
+            
         }
 
-        public void Run()
+        public async Task Run(VideoInfo item, string URL)
         {
-            throw new NotImplementedException();
+            await Receiver.GetDescription(item, URL);
         }
     }
 }
