@@ -10,13 +10,15 @@ namespace YouTubeDownload
     public class VideoInfo
     {
         
-        public VideoInfo( string videoUrl)
+        public VideoInfo(string videoUrl)
         {
-            VideoUrl = videoUrl;
-
+            
+            this.VideoUrl = videoUrl;
 
         }
+
         
+
         public string VideoUrl { get; set; }
         public string Title { get; set; }
         public string Author { get; set; }

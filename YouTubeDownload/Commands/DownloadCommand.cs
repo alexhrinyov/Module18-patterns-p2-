@@ -20,7 +20,7 @@ namespace YouTubeDownload.Commands
             
         }
 
-        public Task Run(VideoInfo item, string URL)
+        public async Task Run(VideoInfo item, string URL)
         {
             throw new NotImplementedException();
         }

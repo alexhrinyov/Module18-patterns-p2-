@@ -9,12 +9,12 @@ namespace YouTubeDownload.Commands
     public interface IYouTubeCommand
     {
         /// <summary>
-        /// Запуск команды
+        /// Запуск команды получения описания
         /// </summary>
         /// <param name="item"></param>
         /// <param name="URL"></param>
         /// <returns></returns>
-        public Task Run(VideoInfo item, string URL);
+        public  Task Run(VideoInfo item, string URL);
         /// <summary>
         /// Запуск загрузки
         /// </summary>

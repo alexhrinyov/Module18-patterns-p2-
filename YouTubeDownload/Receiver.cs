@@ -27,7 +27,8 @@ namespace YouTubeDownload
             item.Title = video.Title;
             item.Author = video.Author.ChannelTitle;
             item.Duration = video.Duration;
-            
+
+
         }
 
         /// <summary>
@@ -38,7 +39,15 @@ namespace YouTubeDownload
         /// <returns></returns>
         public async Task DownloadVideo(VideoInfo video, string outputPath)
         {
-            await youtube.Videos.DownloadAsync(video.VideoUrl, outputPath);
+            video.Video = await youtube.Videos.GetAsync(video.VideoUrl);
+            string videoUrl = video.VideoUrl;
+            var streamManifest = await youtube.Videos.Streams.GetManifestAsync(videoUrl);
+
+            // Get highest quality muxed stream
+            var streamInfo = streamManifest.GetMuxedStreams().GetWithHighestVideoQuality();
+
+            // Download the stream to a file
+            await youtube.Videos.Streams.DownloadAsync(streamInfo, $"{outputPath}\\{video.Video.Title}.{streamInfo.Container}");
         }
     }
 }

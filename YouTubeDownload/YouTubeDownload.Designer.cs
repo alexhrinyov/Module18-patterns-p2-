@@ -37,6 +37,7 @@
             this.PathLabel = new System.Windows.Forms.Label();
             this.VideoUrlBox = new System.Windows.Forms.TextBox();
             this.GetDescrButton = new System.Windows.Forms.Button();
+            this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.SuspendLayout();
             // 
             // SetPathButton
@@ -112,12 +113,20 @@
             this.GetDescrButton.UseVisualStyleBackColor = true;
             this.GetDescrButton.Click += new System.EventHandler(this.GetDescrButton_Click);
             // 
+            // progressBar1
+            // 
+            this.progressBar1.Location = new System.Drawing.Point(178, 364);
+            this.progressBar1.Name = "progressBar1";
+            this.progressBar1.Size = new System.Drawing.Size(133, 23);
+            this.progressBar1.TabIndex = 9;
+            // 
             // YouTubeDownload
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.progressBar1);
             this.Controls.Add(this.GetDescrButton);
             this.Controls.Add(this.VideoUrlBox);
             this.Controls.Add(this.PathLabel);
@@ -142,5 +151,6 @@
         private Label PathLabel;
         private TextBox VideoUrlBox;
         private Button GetDescrButton;
+        private ProgressBar progressBar1;
     }
 }
