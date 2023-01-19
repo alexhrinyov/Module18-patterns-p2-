@@ -29,6 +29,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(YouTubeDownload));
             this.SetPathButton = new System.Windows.Forms.Button();
             this.DownloadButton = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
@@ -37,7 +38,8 @@
             this.PathLabel = new System.Windows.Forms.Label();
             this.VideoUrlBox = new System.Windows.Forms.TextBox();
             this.GetDescrButton = new System.Windows.Forms.Button();
-            this.progressBar1 = new System.Windows.Forms.ProgressBar();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // SetPathButton
@@ -113,12 +115,15 @@
             this.GetDescrButton.UseVisualStyleBackColor = true;
             this.GetDescrButton.Click += new System.EventHandler(this.GetDescrButton_Click);
             // 
-            // progressBar1
+            // pictureBox1
             // 
-            this.progressBar1.Location = new System.Drawing.Point(178, 364);
-            this.progressBar1.Name = "progressBar1";
-            this.progressBar1.Size = new System.Drawing.Size(133, 23);
-            this.progressBar1.TabIndex = 9;
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(694, 389);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(94, 49);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 9;
+            this.pictureBox1.TabStop = false;
             // 
             // YouTubeDownload
             // 
@@ -126,7 +131,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.progressBar1);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.GetDescrButton);
             this.Controls.Add(this.VideoUrlBox);
             this.Controls.Add(this.PathLabel);
@@ -137,6 +142,7 @@
             this.Controls.Add(this.SetPathButton);
             this.Name = "YouTubeDownload";
             this.Text = "YouTubeDownload";
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -151,6 +157,6 @@
         private Label PathLabel;
         private TextBox VideoUrlBox;
         private Button GetDescrButton;
-        private ProgressBar progressBar1;
+        private PictureBox pictureBox1;
     }
 }
