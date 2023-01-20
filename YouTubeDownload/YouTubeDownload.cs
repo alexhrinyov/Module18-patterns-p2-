@@ -20,6 +20,7 @@ namespace YouTubeDownload
             receiver = new Receiver();
             descriptionCommand = new DescriptionCommand(receiver);
             downloadCommand = new DownloadCommand(receiver);
+            
 
 
         }
@@ -42,8 +43,6 @@ namespace YouTubeDownload
                 await CommadSender.RunDescription(video, VideoUrlBox.Text);
                 DescriptionLabel.Text = $"Title: {video.Title}\nAuthor: {video.Author}\nDuration: {video.Duration}";
 
-                
-
             }
             catch(Exception ex)
             {
@@ -61,6 +60,8 @@ namespace YouTubeDownload
                 VideoInfo video = new VideoInfo(VideoUrlBox.Text);
                 CommadSender.SetCommand(downloadCommand);
                 await CommadSender.RunDownload(video, PathLabel.Text);
+                MessageBox.Show("Downloading started...");
+                
                 
             }
             catch (Exception ex)

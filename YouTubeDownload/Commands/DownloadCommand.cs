@@ -15,19 +15,14 @@ namespace YouTubeDownload.Commands
             Receiver = receiver;
         }
 
-        public void Cancel()
-        {
-            
-        }
-
-        public async Task Run(VideoInfo item, string URL)
+        public async Task Run(VideoInfo videoItem, string URL)
         {
             throw new NotImplementedException();
         }
 
-        public async Task RunDownload(VideoInfo item, string outputPath)
+        public async Task RunDownload(VideoInfo videoItem, string outputPath)
         {
-            await Receiver.DownloadVideo(item, outputPath);
+            await Receiver.DownloadVideo(videoItem, outputPath);
         }
     }
 }

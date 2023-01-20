@@ -15,14 +15,25 @@ namespace YouTubeDownload
         {
             Command = command;
         }
-
-        public async Task RunDescription(VideoInfo item, string URL)
+        /// <summary>
+        /// Метод, получающий описание видео
+        /// </summary>
+        /// <param name="VideoItem"></param>
+        /// <param name="URL"></param>
+        /// <returns></returns>
+        public async Task RunDescription(VideoInfo VideoItem, string URL)
         {
-            await Command.Run(item, URL);
+            await Command.Run(VideoItem, URL);
         }
-        public async Task RunDownload(VideoInfo item, string outputPath)
+        /// <summary>
+        /// Метод, запускающий загрузку видео
+        /// </summary>
+        /// <param name="videoItem"></param>
+        /// <param name="outputPath"></param>
+        /// <returns></returns>
+        public async Task RunDownload(VideoInfo videoItem, string outputPath)
         {
-            await Command.RunDownload(item, outputPath);
+            await Command.RunDownload(videoItem, outputPath);
             
         }
     }
